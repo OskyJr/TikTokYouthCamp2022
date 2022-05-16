@@ -1,8 +1,10 @@
-package com.example.tiktokappdev;
+package com.example.tiktokappdev.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.tiktokappdev.R;
 
 public class CatsActivity extends AppCompatActivity {
 

@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tiktokappdev">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,7 +17,10 @@
         android:theme="@style/Theme.TikTokAppDev"
         tools:targetApi="31">
         <activity
-            android:name=".CatsActivity"
+            android:name=".Activity.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CatsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

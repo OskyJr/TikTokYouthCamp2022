@@ -6,36 +6,94 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.tiktokappdev.Activity.DashboardActivity;
+import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
+import com.example.tiktokappdev.DataModels.UserDetailsDataModel;
+import com.example.tiktokappdev.SessionManager.SessionManager;
 
-    private CardView cardview_ourcats;
+public class MainActivity extends AppCompatActivity {
+
+
+    Button btnLogin;
+    EditText et_username, et_password;
+    TextView tv_LoginStatus;
+    UserDetailsDataManager UDDM;
+    SessionManager sessionManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Connect Declaired Variables
+        btnLogin = findViewById(R.id.btn_login);
+        et_username = findViewById(R.id.et_email);
+        et_password = findViewById(R.id.et_password);
+        tv_LoginStatus = findViewById(R.id.tv_LoginStatus);
 
-        cardview_ourcats = findViewById(R.id.cardview_ourcats);
-        cardview_ourcats.setOnClickListener(this);
 
-    }
+        // initialize DataManager
+        UDDM = new UserDetailsDataManager();
+        // initiate session
+        sessionManager = new SessionManager(getApplicationContext());
+        // DataModel
+        final UserDetailsDataModel[] userDetailsDataModel = {null};
 
 
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
-
-            case R.id.cardview_ourcats:
-                startActivity(new Intent(getApplicationContext(), CatsActivity.class));
-                break;
-
+        // It will stay login once you login 1 time
+        if (sessionManager.getLogin())
+        {
+            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));   // shortcut for intent
         }
 
 
-    }
+        // Login Button OnClick Functions
+        btnLogin = (Button) findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                userDetailsDataModel[0] = UDDM.GetLoginStatus(et_username.getText().toString(), et_password.getText().toString());
+
+                if (userDetailsDataModel[0] != null)
+                {
+                    tv_LoginStatus.setText("Login Successful!");
+
+                    // get UserID
+                    String UserID = userDetailsDataModel[0].getUserID().toString();
+
+                    // Store Login in session
+                    sessionManager.setLogin(true);
+                    // store username in session
+                    sessionManager.setUserID(UserID);
+
+                    // Go to Dashboard Activity (intent)
+                    // openDashboardActivity();
+                    Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+                    startActivity(i);
+
+                }
+                else
+                {
+                    tv_LoginStatus.setText("Login Failed! Please Try Again!");
+                }
+
+            }
+        });
+
+    } // end of onCreate()
+
+
+    public void openDashboardActivity()
+    {
+        Intent intent = new Intent( MainActivity.this, DashboardActivity.class);
+        startActivity(intent);
+    }
 
 }
