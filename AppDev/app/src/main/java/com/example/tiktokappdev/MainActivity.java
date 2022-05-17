@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +14,15 @@ import android.widget.TextView;
 import com.example.tiktokappdev.Activity.DashboardActivity;
 import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.DataModels.UserDetailsDataModel;
+import com.example.tiktokappdev.Network.Methods;
+import com.example.tiktokappdev.Network.Model;
+import com.example.tiktokappdev.Network.RetrofitClient;
 import com.example.tiktokappdev.SessionManager.SessionManager;
+
+import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_LoginStatus;
     UserDetailsDataManager UDDM;
     SessionManager sessionManager;
-
+    //TODO: testing for network api
+    private static final String TAG = "MainActivity";
+    private Button getData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +95,33 @@ public class MainActivity extends AppCompatActivity {
                     tv_LoginStatus.setText("Login Failed! Please Try Again!");
                 }
 
+            }
+        });
+
+        getData = findViewById(R.id.getData);
+        getData.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
+                Call<Model> call = methods.getAllData();
+
+                call.enqueue(new Callback<Model>() {
+                    //@Override
+                    public void onResponse(Call<Model> call, Response<Model> response) {
+                        Log.e(TAG, "onResponse: code: " +response.code() );
+
+                        ArrayList<Model.data> data = response.body().getData();
+
+                        for (Model.data data1 : data) {
+                            Log.e(TAG, "onResponse: emails: "+data1.getEmail());
+                        }
+                    }
+
+                    public void onFailure(Call<Model> call, Throwable t) {
+                        Log.e(TAG, "onFailure: "+t.getMessage());
+                    }
+
+                });
             }
         });
 
