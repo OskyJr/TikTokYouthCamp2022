@@ -241,8 +241,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="642dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="471dp"
         android:text="TextView"
         android:textColor="#E91E63" />
 

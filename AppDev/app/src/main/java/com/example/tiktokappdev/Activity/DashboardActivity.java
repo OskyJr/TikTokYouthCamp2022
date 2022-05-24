@@ -36,8 +36,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_dashboardactivity);
 
 
-//        sessionManager = new SessionManager(getApplicationContext());
-//        tv_LoginSessionUserID.setText(sessionManager.getUserID().toString());  // set name of user who login
+        // get user ID using session
+        sessionManager = new SessionManager(getApplicationContext());
+        tv_LoginSessionUserID = findViewById(R.id.tv_LoginSessionUserID);
+        tv_LoginSessionUserID.setText(sessionManager.getUserID().toString());
+        tv_LoginSessionUserID.setVisibility(View.GONE);
 //        UDDM = new UserDetailsDataManager();
 //        final UserDetailsDataModel[] userDetailsDataModel = {null};
 //        userDetailsDataModel[0] = UDDM.GetUserProfileDetails(sessionManager.getUserID().toString());

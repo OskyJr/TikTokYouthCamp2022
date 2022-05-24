@@ -14,7 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.R;
+import com.example.tiktokappdev.SessionManager.SessionManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,6 +37,12 @@ public class NewBookingsActivity1 extends AppCompatActivity {
 
     DatePickerDialog.OnDateSetListener onDateSetListener;
     List<String> PublicHoliday = new ArrayList<String>();
+
+    String UserName;
+    String UserEmail;
+    UserDetailsDataManager UDDM;
+    SessionManager sessionManager;
+    private TextView tv_LoginSessionUserID;
 
 
     @Override
@@ -59,6 +67,12 @@ public class NewBookingsActivity1 extends AppCompatActivity {
         tv_totalcost.setVisibility(View.GONE);
         tv_errormessage.setVisibility(View.GONE);
         buttonConfirmBooking.setVisibility(View.GONE);
+
+        // get user ID using session
+        sessionManager = new SessionManager(getApplicationContext());
+        tv_LoginSessionUserID = findViewById(R.id.tv_LoginSessionUserID);
+        tv_LoginSessionUserID.setText(sessionManager.getUserID().toString());
+        // tv_LoginSessionUserID.setVisibility(View.GONE);
 
 
         // ------------- Select Time ----------------------
@@ -197,6 +211,12 @@ public class NewBookingsActivity1 extends AppCompatActivity {
         buttonConfirmBooking.setVisibility(View.GONE);
         buttonCalculateCost.setVisibility(View.VISIBLE);
         tv_errormessage.setVisibility(View.GONE);
+    }
+
+
+    public void method_savetodb()
+    {
+
     }
 
 
