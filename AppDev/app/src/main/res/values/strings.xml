@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">TikTok App Dev</string>
+
+    <string-array name="select_bookingtime">
+        <item>- Choose Time -</item>
+        <item>10AM - 11AM</item>
+        <item>11AM - 12PM</item>
+        <item>12PM - 1PM</item>
+        <item>1PM - 2PM</item>
+        <item>2PM - 3PM</item>
+        <item>4PM - 5PM</item>
+    </string-array>
+
+    <string-array name="select_noofpax">
+        <item>- Choose No -</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>

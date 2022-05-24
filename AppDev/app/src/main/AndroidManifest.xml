@@ -17,11 +17,24 @@
         android:theme="@style/Theme.TikTokAppDev"
         tools:targetApi="31">
         <activity
-            android:name=".MyCatsMasterFragment"
+            android:name=".Activity.ContactUsActivity"
             android:exported="false" />
         <activity
-            android:name=".MyCatsDetailedFragment"
+            android:name=".Activity.NewBookingsActivity1"
             android:exported="false" />
+        <activity
+            android:name=".Activity.AppointmentActivity"
+            android:exported="false" />
+
+
+<!--        <activity-->
+<!--            android:name=".MyCatsMasterFragment"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".MyCatsDetailedFragment"-->
+<!--            android:exported="false" />-->
+
+
         <activity
             android:name=".Activity.DashboardActivity"
             android:exported="false" />

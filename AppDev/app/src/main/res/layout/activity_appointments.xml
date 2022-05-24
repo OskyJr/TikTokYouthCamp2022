@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AppointmentActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="@drawable/ic_menu" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="40dp"
+        android:text="Booking a Seat with Us!"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_bookaseat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="40dp"
+        android:text="Book a Seat" />
+
+    <Button
+        android:id="@+id/btn_viewmybookings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginRight="40dp"
+        android:text="View my Bookings" />
+
+    <Button
+        android:id="@+id/btn_cancelbooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginRight="40dp"
+        android:text="Cancel Booking" />
+
+
+</RelativeLayout>

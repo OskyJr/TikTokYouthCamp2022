@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.NewBookingsActivity1">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/teal_700"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:navigationIcon="@drawable/ic_menu" />
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="20dp"
+                    android:text="[ Book a Seat ]"
+                    android:textColor="#009688"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Location: Bugis+ blk 55 Lor 8 Singapore 123456"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="238dp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Select a Date: " />
+
+                <Button
+                    android:id="@+id/buttonSelectDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/textView5"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:text="- Choose Date -" />
+
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Select a Time: " />
+
+
+                <Spinner
+                    android:id="@+id/spinner_bookingtime"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:entries="@array/select_bookingtime"
+                    android:textAlignment="center" />
+
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Select No of Pax: " />
+
+
+                <Spinner
+                    android:id="@+id/spinner_noofpax"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:entries="@array/select_noofpax"
+                    android:textAlignment="center" />
+
+
+                <TextView
+                    android:id="@+id/tv_totalcosttag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Total Cost: " />
+
+
+                <TextView
+                    android:id="@+id/tv_totalcost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@+id/tv_totalcosttag"
+                    android:text="$40.44" />
+
+
+                <Button
+                    android:id="@+id/buttonCalculateCost"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/tv_totalcost"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:text="Check Total Price" />
+
+
+                <Button
+                    android:id="@+id/buttonConfirmBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/buttonCalculateCost"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:text="Confirm Booking" />
+
+
+                <Button
+                    android:id="@+id/buttonReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/buttonCalculateCost"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#eeeeee"
+                    android:text="Reset"
+                    android:layout_marginBottom="100dp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_errormessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="100dp"
+                    android:text="Error Message"
+                    android:textColor="#FF0000	" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+
+</RelativeLayout>
