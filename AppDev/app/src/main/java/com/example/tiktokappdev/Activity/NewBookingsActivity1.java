@@ -1,8 +1,11 @@
 package com.example.tiktokappdev.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tiktokappdev.DataManagers.AppointmentDataManager;
 import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.R;
 import com.example.tiktokappdev.SessionManager.SessionManager;
@@ -41,8 +45,20 @@ public class NewBookingsActivity1 extends AppCompatActivity {
     String UserName;
     String UserEmail;
     UserDetailsDataManager UDDM;
+    AppointmentDataManager ADM;
     SessionManager sessionManager;
     private TextView tv_LoginSessionUserID;
+
+
+    // variables to store field text
+    String getapptlocation;
+    String getapptdate;
+    String getappttime;
+    String getapptNoofPax;
+    String getappttotal;
+    String getapptuserid;
+
+
 
 
     @Override
@@ -50,6 +66,7 @@ public class NewBookingsActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newbookings1);
 
+        ADM = new AppointmentDataManager();
 
         spinner_bookingtime = findViewById(R.id.spinner_bookingtime);
         spinner_noofpax = findViewById(R.id.spinner_noofpax);
@@ -128,7 +145,16 @@ public class NewBookingsActivity1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // method_checkandcalculateprice();
+                try
+                {
+                    method_savetodb();
+                }
+                catch (Exception ex)
+                {
+                    tv_errormessage.setText("error" + ex);
+                }
+
+
             }
         });
 
@@ -182,10 +208,10 @@ public class NewBookingsActivity1 extends AppCompatActivity {
                 tv_totalcost.setVisibility(View.VISIBLE);
                 tv_totalcost.setText("$" + totalprice);
 
-                TotalPriceinString = "$" + totalprice;
 
                 // set check total price to disabled
                 buttonCalculateCost.setVisibility(View.GONE);
+
 
             }
             catch (Exception ex)
@@ -216,6 +242,35 @@ public class NewBookingsActivity1 extends AppCompatActivity {
 
     public void method_savetodb()
     {
+        getapptlocation = "Bugis+ blk 55 Lor 8 Singapore 123456";
+        getapptdate = buttonSelectDate.getText().toString();
+        getappttime = spinner_bookingtime.getSelectedItem().toString();
+        getapptNoofPax = spinner_noofpax.getSelectedItem().toString();
+        getappttotal = tv_totalcost.getText().toString();
+        getapptuserid = sessionManager.getUserID().toString();
+
+
+        // list all 6 variables to check
+        // tv_totalcost.setText(getapptlocation + " " + getapptdate + " " + getappttime + " "+ getapptNoofPax + " "+ getappttotal + " "+ getapptuserid + " ");
+
+        ADM.AddAppointment(getapptlocation, getapptdate, getappttime, getapptNoofPax, getappttotal, getapptuserid);
+
+
+
+        new AlertDialog.Builder(NewBookingsActivity1.this)
+                .setIcon(R.drawable.ic_correct)
+                .setTitle("Book Appointment")
+                .setMessage("Your Booking is Successful!")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        startActivity(new Intent(getApplicationContext(), AppointmentActivity.class));
+
+                    }
+                })
+                .show();
 
     }
 
