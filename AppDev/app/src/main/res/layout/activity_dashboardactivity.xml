@@ -13,7 +13,16 @@
         android:background="@color/teal_700"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:navigationIcon="@drawable/ic_menu" />
+        app:navigationIcon="@drawable/ic_menu">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginLeft="280dp"/>
 
     <TextView
         android:id="@+id/textView9"
@@ -225,5 +234,16 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_LoginSessionUserID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="471dp"
+        android:text="TextView"
+        android:textColor="#E91E63" />
 
 </RelativeLayout>
