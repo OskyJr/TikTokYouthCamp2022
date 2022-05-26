@@ -1,8 +1,8 @@
-package com.example.tiktokappdev.Network;
+package com.example.tiktokappdev.DataModels;
 
 import java.util.ArrayList;
 
-public class Model {
+public class MenuDataModel {
     ArrayList<data> food;
     ArrayList<data> drinks;
 
