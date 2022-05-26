@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit;
-    private static String BASE_URL = "https://reqres.in/";
+    private static String BASE_URL = "https://gateway.pinata.cloud/ipfs/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

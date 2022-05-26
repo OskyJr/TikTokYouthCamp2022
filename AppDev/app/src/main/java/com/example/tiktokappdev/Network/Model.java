@@ -3,58 +3,29 @@ package com.example.tiktokappdev.Network;
 import java.util.ArrayList;
 
 public class Model {
-    String page;
-    String per_page;
-    String total;
-    String total_pages;
-    ArrayList<data> data;
+    ArrayList<data> food;
+    ArrayList<data> drinks;
 
-    public String getPage() {
-        return page;
+    public ArrayList<data> getFood() {
+        return food;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public void setFood(ArrayList<data> food) {
+        this.food = food;
     }
 
-    public String getPer_page() {
-        return per_page;
+    public ArrayList<data> getDrinks() {
+        return drinks;
     }
 
-    public void setPer_page(String per_page) {
-        this.per_page = per_page;
-    }
-
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
-    public String getTotal_pages() {
-        return total_pages;
-    }
-
-    public void setTotal_pages(String total_pages) {
-        this.total_pages = total_pages;
-    }
-
-    public ArrayList<data> getData() {
-        return data;
-    }
-
-    public void setData(ArrayList<data> data) {
-        this.data = data;
+    public void setDrinks(ArrayList<data> drinks) {
+        this.drinks = drinks;
     }
 
     public class data {
         String id;
-        String email;
-        String first_name;
-        String last_name;
-        String avatar;
+        String name;
+        String price;
 
         public String getId() {
             return id;
@@ -64,36 +35,20 @@ public class Model {
             this.id = id;
         }
 
-        public String getEmail() {
-            return email;
+        public String getName() {
+            return name;
         }
 
-        public void setEmail(String email) {
-            this.email = email;
+        public void setName(String name) {
+            this.name = name;
         }
 
-        public String getFirst_name() {
-            return first_name;
+        public String getPrice() {
+            return price;
         }
 
-        public void setFirst_name(String first_name) {
-            this.first_name = first_name;
-        }
-
-        public String getLast_name() {
-            return last_name;
-        }
-
-        public void setLast_name(String last_name) {
-            this.last_name = last_name;
-        }
-
-        public String getAvatar() {
-            return avatar;
-        }
-
-        public void setAvatar(String avatar) {
-            this.avatar = avatar;
+        public void setPrice(String price) {
+            this.price = price;
         }
     }
 }

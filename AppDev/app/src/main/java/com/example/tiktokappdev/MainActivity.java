@@ -110,10 +110,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Model> call, Response<Model> response) {
                         Log.e(TAG, "onResponse: code: " +response.code() );
 
-                        ArrayList<Model.data> data = response.body().getData();
+                        ArrayList<Model.data> drinksData = response.body().getDrinks();
+                        ArrayList<Model.data> foodData = response.body().getFood();
 
-                        for (Model.data data1 : data) {
-                            Log.e(TAG, "onResponse: emails: "+data1.getEmail());
+                        for (Model.data data1 : drinksData) {
+                            Log.e(TAG, "drink: " + data1.getId() + data1.getName() + data1.getPrice());
+                        }
+                        for (Model.data data2 : drinksData) {
+                            Log.e(TAG, "food: " + data2.getId() + data2.getName() + data2.getPrice());
                         }
                     }
 
