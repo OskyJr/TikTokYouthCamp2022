@@ -50,10 +50,12 @@ public class MyCatsDataManager {
                 String Age = rs.getString(3);
                 String Breed = rs.getString(4);
                 String Description = rs.getString(5);
-                Integer Image = cxt.getResources().getIdentifier(rs.getString(6), "drawable", cxt.getPackageName());
+                String Image = rs.getString(6);
+//                image is a .png or .jpg
+                Integer ImageInt = cxt.getResources().getIdentifier(Image.substring(0, Image.indexOf(".")), "drawable", cxt.getPackageName());
 
 
-                MyCatsDataModel MyCatsDataModel = new MyCatsDataModel(ID, Name, Age, Breed, Description, Image);
+                MyCatsDataModel MyCatsDataModel = new MyCatsDataModel(ID, Name, Age, Breed, Description, ImageInt);
                 MyCatsLists.add(MyCatsDataModel);
             }
             // close TesultSet and connection
