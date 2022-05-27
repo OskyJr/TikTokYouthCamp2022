@@ -1,10 +1,15 @@
 package com.example.tiktokappdev.DataManagers;
 
+import android.util.Log;
+
+import com.example.tiktokappdev.DataModels.AppointmentDataModel;
 import com.example.tiktokappdev.Database.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AppointmentDataManager {
 
@@ -44,6 +49,55 @@ public class AppointmentDataManager {
         {
             ex.printStackTrace();
         }
+    }
+
+
+    public AppointmentDataModel[] GetAllAppointmentByUserID(String getUserID)
+    {
+        // initialize DB Connection
+        dbConnection = new DBConnection();
+
+        // open connection
+        connect = dbConnection.CONN();
+
+        ArrayList<AppointmentDataModel> GetAppointmentList = new ArrayList<>();
+
+        try
+        {
+            String queryGetAppointments = "select * from Appointment where Appt_UserID = ?";
+            PreparedStatement stmt = connect.prepareStatement(queryGetAppointments);
+            stmt.setString(1, getUserID);
+            // stmt.setString(2, ApptStatus);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next())
+            {
+                String Appt_ID = rs.getString(1);
+                String Appt_Location = rs.getString(2);
+                String Appt_Date = rs.getString(3);
+                String Appt_Time = rs.getString(4);
+                String Appt_NoofPax = rs.getString(5);
+                String Appt_Total = rs.getString(6);
+                String Appt_UserID = rs.getString(7);
+
+                AppointmentDataModel appointmentDataModel = new AppointmentDataModel(Appt_ID, Appt_Location, Appt_Date, Appt_Time, Appt_NoofPax, Appt_Total, Appt_UserID);
+                GetAppointmentList.add(appointmentDataModel);
+
+            }
+
+            // close TesultSet and connection
+            rs.close();
+            connect.close();
+            return GetAppointmentList.toArray(new AppointmentDataModel[0]);
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            Log.d("Get Appointment Failed",ex.toString());
+        }
+
+        return null;
     }
 
 
