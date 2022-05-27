@@ -17,6 +17,14 @@
         android:theme="@style/Theme.TikTokAppDev"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.AppointmentCancelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ViewMyBookingsActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_view_my_bookings"
+            android:theme="@style/Theme.TikTokAppDev.NoActionBar" />
+        <activity
             android:name=".Activity.ContactUsActivity"
             android:exported="false" />
         <activity
@@ -24,17 +32,12 @@
             android:exported="false" />
         <activity
             android:name=".Activity.AppointmentActivity"
-            android:exported="false" />
-
-
-<!--        <activity-->
-<!--            android:name=".MyCatsMasterFragment"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".MyCatsDetailedFragment"-->
-<!--            android:exported="false" />-->
-
-
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".MyCatsMasterFragment" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".MyCatsDetailedFragment" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".Activity.DashboardActivity"
             android:exported="false" />

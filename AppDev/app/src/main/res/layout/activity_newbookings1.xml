@@ -38,7 +38,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textColor="#E91E63" />
+                    android:textColor="#E91E63"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/textView"
@@ -59,6 +60,18 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="20dp"
                     android:text="Location: Bugis+ blk 55 Lor 8 Singapore 123456"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="238dp" />
+
+
+                <TextView
+                    android:id="@+id/textView_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Price: $14 per ticket"
                     tools:layout_editor_absoluteX="24dp"
                     tools:layout_editor_absoluteY="238dp" />
 
