@@ -1,7 +1,6 @@
 package com.example.tiktokappdev;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ import com.example.tiktokappdev.Activity.DashboardActivity;
 import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.DataModels.UserDetailsDataModel;
 import com.example.tiktokappdev.Network.Methods;
-import com.example.tiktokappdev.Network.Model;
+import com.example.tiktokappdev.DataModels.MenuDataModel;
 import com.example.tiktokappdev.Network.RetrofitClient;
 import com.example.tiktokappdev.SessionManager.SessionManager;
 
@@ -103,21 +102,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
-                Call<Model> call = methods.getAllData();
+                Call<MenuDataModel> call = methods.getAllData();
 
-                call.enqueue(new Callback<Model>() {
+                call.enqueue(new Callback<MenuDataModel>() {
                     //@Override
-                    public void onResponse(Call<Model> call, Response<Model> response) {
+                    public void onResponse(Call<MenuDataModel> call, Response<MenuDataModel> response) {
                         Log.e(TAG, "onResponse: code: " +response.code() );
 
-                        ArrayList<Model.data> data = response.body().getData();
+                        ArrayList<MenuDataModel.data> drinksData = response.body().getDrinks();
+                        ArrayList<MenuDataModel.data> foodData = response.body().getFood();
 
-                        for (Model.data data1 : data) {
-                            Log.e(TAG, "onResponse: emails: "+data1.getEmail());
+                        for (MenuDataModel.data data1 : drinksData) {
+                            Log.e(TAG, "drink: " + data1.getId() + data1.getName() + data1.getPrice());
+                        }
+                        for (MenuDataModel.data data2 : drinksData) {
+                            Log.e(TAG, "food: " + data2.getId() + data2.getName() + data2.getPrice());
                         }
                     }
 
-                    public void onFailure(Call<Model> call, Throwable t) {
+                    public void onFailure(Call<MenuDataModel> call, Throwable t) {
                         Log.e(TAG, "onFailure: "+t.getMessage());
                     }
 

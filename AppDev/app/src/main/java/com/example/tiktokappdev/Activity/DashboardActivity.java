@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.example.tiktokappdev.SessionManager.SessionManager;
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener  {
 
     private CardView cardview_ourcats;
+    private CardView cardview_menu;
     private CardView cardview_myreservation;
     private CardView cardview_aboutandcontactus;
 
@@ -55,6 +57,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         cardview_ourcats = findViewById(R.id.cardview_ourcats);
         cardview_ourcats.setOnClickListener(this);
 
+        cardview_menu = findViewById(R.id.cardview_menu);
+        cardview_menu.setOnClickListener(this);
         cardview_myreservation = findViewById(R.id.cardview_myreservation);
         cardview_myreservation.setOnClickListener(this);
 
@@ -82,6 +86,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.cardview_ourcats:
                 startActivity(new Intent(getApplicationContext(), CatsActivity.class));
+                break;
+            case R.id.cardview_menu:
+                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 break;
 
             case R.id.cardview_myreservation:
