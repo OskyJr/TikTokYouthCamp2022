@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_margin="20dp">
+
+
+    <ImageView
+        android:id="@+id/imageview_apptlocation"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/ic_location"/>
+
+    <TextView
+        android:id="@+id/tv_apptlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Location"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/imageview_apptlocation"
+        android:layout_toRightOf="@+id/imageview_apptlocation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/tv_apptdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Date"
+        android:layout_below="@+id/tv_apptlocation"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/imageview_apptdate"
+        android:layout_toRightOf="@+id/imageview_apptdate"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <ImageView
+        android:id="@+id/imageview_apptdate"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imageview_apptlocation"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_date"/>
+
+    <TextView
+        android:id="@+id/tv_appttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Time"
+        android:layout_below="@+id/tv_apptdate"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/imageview_apptdate"
+        android:layout_toRightOf="@+id/imageview_apptdate"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <ImageView
+        android:id="@+id/imageview_appttime"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imageview_apptdate"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_time1" />
+
+
+    <TextView
+        android:id="@+id/tv_apptnoofpax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="no of pax"
+        android:gravity="center"
+        android:layout_below="@+id/tv_appttime"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/imageview_appttime"
+        android:layout_toRightOf="@+id/imageview_appttime"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <ImageView
+        android:id="@+id/imageview_apptnoofpax"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imageview_appttime"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_human" />
+
+    <TextView
+        android:id="@+id/tv_appttotalcost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_apptnoofpax"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/imageview_apptnoofpax"
+        android:layout_toRightOf="@+id/imageview_apptnoofpax"
+        android:gravity="center"
+        android:text="Total Cost"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:id="@+id/imageview_appttotalcost"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/imageview_apptnoofpax"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_money" />
+
+
+</RelativeLayout>
