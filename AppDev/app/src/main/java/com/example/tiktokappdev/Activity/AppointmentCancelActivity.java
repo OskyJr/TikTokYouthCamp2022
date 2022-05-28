@@ -93,7 +93,7 @@ public class AppointmentCancelActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
 
                                 // delete the SELECTED appointment here
-                                ADM.DeleteBooking(receiveapptuserid, receiveapptid);
+                                ADM.DeleteBooking(UserID, receiveapptid);
 
 
 
