@@ -38,14 +38,13 @@ public class MenuGridviewAdaptor extends ArrayAdapter {
             itemView = ((Activity) this.getContext()).getLayoutInflater().inflate(R.layout.gridview_mycats, null);
         }
 
-        final MenuDataModel.data MyCatsDataModel = data.get(position);
+        final MenuDataModel.data menuDataModel = data.get(position);
 
-        //ImageView imageView = itemView.findViewById(R.id.imageView_mycatsimage);
+        ImageView imageView = itemView.findViewById(R.id.imageView_mycatsimage);
         //imageView.setImageResource(MyCatsDataModel.getImage());
 
-
         TextView txtView = itemView.findViewById(R.id.textViewMCName);
-        txtView.setText(MyCatsDataModel.getName());
+        txtView.setText(menuDataModel.getName());
 
         return itemView;
     }

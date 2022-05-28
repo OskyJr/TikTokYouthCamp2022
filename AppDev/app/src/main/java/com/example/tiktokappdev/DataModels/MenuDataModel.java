@@ -10,19 +10,11 @@ public class MenuDataModel {
         return food;
     }
 
-    public void setFood(ArrayList<data> food) {
-        this.food = food;
-    }
-
     public ArrayList<data> getDrinks() {
         return drinks;
     }
 
-    public void setDrinks(ArrayList<data> drinks) {
-        this.drinks = drinks;
-    }
-
-    public class data {
+    public static class data {
         String id;
         String name;
         String price;
@@ -47,8 +39,5 @@ public class MenuDataModel {
             return price;
         }
 
-        public void setPrice(String price) {
-            this.price = price;
-        }
     }
 }
