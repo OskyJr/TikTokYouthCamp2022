@@ -242,7 +242,7 @@ public class NewBookingsActivity1 extends AppCompatActivity {
 
     public void method_savetodb()
     {
-        getapptlocation = "Bugis+ blk 55 Lor 8 Singapore 123456";
+        getapptlocation = "Bugis+ @ S123456";
         getapptdate = buttonSelectDate.getText().toString();
         getappttime = spinner_bookingtime.getSelectedItem().toString();
         getapptNoofPax = spinner_noofpax.getSelectedItem().toString();

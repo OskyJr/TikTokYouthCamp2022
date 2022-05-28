@@ -109,7 +109,7 @@ public class AppointmentCancelActivity extends AppCompatActivity {
 
 
                                                 // GO BACK appointment after cancelling an appointment
-                                                startActivity(new Intent(getApplicationContext(), NewBookingsActivity1.class));
+                                                startActivity(new Intent(getApplicationContext(), ViewMyBookingsActivity2.class));
 
                                             }
                                         })

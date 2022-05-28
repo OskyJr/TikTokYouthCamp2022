@@ -10,17 +10,33 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
+//    String ip = "sql8003.site4now.net";
+//
+//    // this is default if you are using JTDS driver
+//    String classes = "net.sourceforge.jtds.jdbc.Driver";
+//
+//    // Name of the database
+//    String db = "db_a86f1a_ttyc2022";
+//
+//    // username and password are required for security
+//    String un = "db_a86f1a_ttyc2022_admin";
+//    String password = "tiktok@camp2022";
+
+
+
+    // new db connection
     String ip = "sql8003.site4now.net";
 
     // this is default if you are using JTDS driver
     String classes = "net.sourceforge.jtds.jdbc.Driver";
 
     // Name of the database
-    String db = "db_a86f1a_ttyc2022";
+    String db = "db_a87a2c_thenekocafe";
 
     // username and password are required for security
-    String un = "db_a86f1a_ttyc2022_admin";
-    String password = "tiktok@camp2022";
+    String un = "db_a87a2c_thenekocafe_admin";
+    String password = "TikTok@2022";
+
 
 
     @SuppressLint("NewApi")
