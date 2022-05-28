@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.example.tiktokappdev.DataModels.AppointmentDataModel;
 import com.example.tiktokappdev.R;
 
-public class AppointmentListViewAdapter extends ArrayAdapter {
+public class AppointmentListViewAdapter extends ArrayAdapter<AppointmentDataModel> {
 
 
     private AppointmentDataModel[] data;
