@@ -26,9 +26,8 @@ import retrofit2.Response;
 
 public class MenuMasterFragment extends Fragment {
     private static final String TAG = "MenuMasterFragment";
-
+    private  static final String imageNamePrefix = "image_menu";
     ArrayList<MenuDataModel.data> drinksData;
-    ArrayList<MenuDataModel.data> foodData;
 
     @Nullable
     @Override
@@ -49,9 +48,16 @@ public class MenuMasterFragment extends Fragment {
 
                 assert response.body() != null;
                 drinksData = response.body().getDrinks();
-                foodData = response.body().getFood();
 
-                //TODO: change R.id.GridView_MyCats?
+                for(int i = 0; i < drinksData.size(); i++) {
+                    // image is a .png or .jpg
+                    String Image = imageNamePrefix + i;
+                    int ImageInt = requireActivity().getResources().getIdentifier(Image, "drawable", getActivity().getPackageName());
+                    if (ImageInt != 0) {
+                        drinksData.get(i).setImage(ImageInt);
+                    }
+                }
+
                 GridView gridViewMenu = view.findViewById(R.id.GridView_MyCats);
                 MenuGridviewAdaptor menuGridviewAdaptor = new MenuGridviewAdaptor(menuContext, drinksData);
                 gridViewMenu.setAdapter(menuGridviewAdaptor);

@@ -18,6 +18,7 @@ public class MenuDataModel {
         String id;
         String name;
         String price;
+        Integer image;
 
         public String getId() {
             return id;
@@ -39,5 +40,12 @@ public class MenuDataModel {
             return price;
         }
 
+        public Integer getImage() {
+            return image;
+        }
+
+        public void setImage(Integer image) {
+            this.image = image;
+        }
     }
 }

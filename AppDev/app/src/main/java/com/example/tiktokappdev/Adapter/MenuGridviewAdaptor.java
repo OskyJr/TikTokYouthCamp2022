@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.tiktokappdev.DataModels.MenuDataModel;
-import com.example.tiktokappdev.DataModels.MyCatsDataModel;
 import com.example.tiktokappdev.R;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 public class MenuGridviewAdaptor extends ArrayAdapter {
 
 
-    private ArrayList<MenuDataModel.data> data;
+    private final ArrayList<MenuDataModel.data> data;
 
     public MenuGridviewAdaptor(Context context, ArrayList<MenuDataModel.data> data) {
         super(context, 0, data);
@@ -41,10 +40,10 @@ public class MenuGridviewAdaptor extends ArrayAdapter {
         final MenuDataModel.data menuDataModel = data.get(position);
 
         ImageView imageView = itemView.findViewById(R.id.imageView_mycatsimage);
-        //imageView.setImageResource(MyCatsDataModel.getImage());
+        imageView.setImageResource(menuDataModel.getImage());
 
         TextView txtView = itemView.findViewById(R.id.textViewMCName);
-        txtView.setText(menuDataModel.getName());
+        txtView.setText(menuDataModel.getName() + ": " + menuDataModel.getPrice());
 
         return itemView;
     }
