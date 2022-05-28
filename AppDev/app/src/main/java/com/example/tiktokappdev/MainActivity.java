@@ -2,6 +2,7 @@ package com.example.tiktokappdev;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,13 +16,13 @@ import com.example.tiktokappdev.SessionManager.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
 
-
     Button btnLogin;
     EditText et_username, et_password;
     TextView tv_LoginStatus;
-    UserDetailsDataManager UDDM;
+    UserDetailsDataManager userDetailsDataManager;
     SessionManager sessionManager;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // initialize DataManager
-        UDDM = new UserDetailsDataManager();
+        userDetailsDataManager = new UserDetailsDataManager();
         // initiate session
         sessionManager = new SessionManager(getApplicationContext());
         // DataModel
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(v -> {
 
-            userDetailsDataModel[0] = UDDM.GetLoginStatus(et_username.getText().toString(), et_password.getText().toString());
+            userDetailsDataModel[0] = userDetailsDataManager.GetLoginStatus(et_username.getText().toString(), et_password.getText().toString());
 
             if (userDetailsDataModel[0] != null)
             {

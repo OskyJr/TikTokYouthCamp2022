@@ -26,7 +26,7 @@ public class LoginUnitTest {
         // Create Mocks
         MainActivity myObjectUnderTest = mock(MainActivity.class);
         UserDetailsDataManager udom = mock(UserDetailsDataManager.class);
-        myObjectUnderTest.UDDM = udom;
+        myObjectUnderTest.userDetailsDataManager = udom;
 
         // Mock data
         String username = "user";
@@ -38,12 +38,12 @@ public class LoginUnitTest {
         String gender = "F";
         String password = "password";
         UserDetailsDataModel userDetailsDataModel = new UserDetailsDataModel(username, name, roles, email, contactNumber, dob, gender, password);
-        when(myObjectUnderTest.UDDM.GetLoginStatus(anyString(),anyString())).thenReturn(userDetailsDataModel);
+        when(myObjectUnderTest.userDetailsDataManager.GetLoginStatus(anyString(),anyString())).thenReturn(userDetailsDataModel);
 
         myObjectUnderTest.onCreate(mockBundle);
 
         // Assert success
-        Assert.assertEquals(myObjectUnderTest.UDDM.GetLoginStatus("test@abc.com", "password"), userDetailsDataModel);
+        Assert.assertEquals(myObjectUnderTest.userDetailsDataManager.GetLoginStatus("test@abc.com", "password"), userDetailsDataModel);
     }
 
     @Test
@@ -51,13 +51,13 @@ public class LoginUnitTest {
         // Create Mocks
         MainActivity myObjectUnderTest = mock(MainActivity.class);
         UserDetailsDataManager udom = mock(UserDetailsDataManager.class);
-        myObjectUnderTest.UDDM = udom;
+        myObjectUnderTest.userDetailsDataManager = udom;
 
-        when(myObjectUnderTest.UDDM.GetLoginStatus(anyString(),anyString())).thenReturn(null);
+        when(myObjectUnderTest.userDetailsDataManager.GetLoginStatus(anyString(),anyString())).thenReturn(null);
 
         myObjectUnderTest.onCreate(mockBundle);
 
         // Assert failed login
-        Assert.assertNull(myObjectUnderTest.UDDM.GetLoginStatus("test@abc.com", "password"));
+        Assert.assertNull(myObjectUnderTest.userDetailsDataManager.GetLoginStatus("test@abc.com", "password"));
     }
 }
