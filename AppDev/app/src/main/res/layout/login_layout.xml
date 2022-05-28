@@ -55,16 +55,6 @@
         android:textColor="#ffffff"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/getData"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_LoginStatus"
-        android:layout_marginTop="51dp"
-        android:text="Get Data test"
-        android:textColor="#ffffff"
-        android:textSize="20sp" />
-
     <TextView
         android:id="@+id/tv_LoginStatus"
         android:layout_width="250dp"
