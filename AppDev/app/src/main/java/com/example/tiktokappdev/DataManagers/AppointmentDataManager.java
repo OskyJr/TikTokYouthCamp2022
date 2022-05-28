@@ -101,4 +101,30 @@ public class AppointmentDataManager {
     }
 
 
+    public void DeleteBooking(String UserID, String ApptID)
+    {
+        // initialize DB Connection
+        dbConnection = new DBConnection();
+
+        // open connection
+        connect = dbConnection.CONN();
+
+        try
+        {
+            String DeleteAppointmentquery = "Delete Appointment where Appt_UserID = ? and Appt_ID = ?";
+            PreparedStatement DeleteAppointment;
+            DeleteAppointment = connect.prepareStatement(DeleteAppointmentquery);
+            DeleteAppointment.setString(1, UserID);
+            DeleteAppointment.setString(2, ApptID);
+            DeleteAppointment.executeUpdate();
+            connect.close();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+    }
+
+
 }

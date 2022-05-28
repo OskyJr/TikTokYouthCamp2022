@@ -1,18 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.AppointmentCancelActivity">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:id="@+id/RL_toplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_menu">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="cursive"
+            android:text="The Neko Cafe"
+            android:textColor="#00BCD4"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RL_bottomlayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="324dp"
-        android:text="Cancel page"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="20dp"
+        android:background="@drawable/booking_listviewbackground"
+        android:padding="10dp"
+        android:layout_below="@+id/RL_toplayout">
+
+
+        <ImageView
+            android:id="@+id/imageview_apptlocation"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/ic_location"/>
+
+        <TextView
+            android:id="@+id/tv_apptlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Location"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/imageview_apptlocation"
+            android:layout_toRightOf="@+id/imageview_apptlocation"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/tv_apptdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Date"
+            android:layout_below="@+id/tv_apptlocation"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/imageview_apptdate"
+            android:layout_toRightOf="@+id/imageview_apptdate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:id="@+id/imageview_apptdate"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/imageview_apptlocation"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_date"/>
+
+        <TextView
+            android:id="@+id/tv_appttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Time"
+            android:layout_below="@+id/tv_apptdate"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/imageview_apptdate"
+            android:layout_toRightOf="@+id/imageview_apptdate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:id="@+id/imageview_appttime"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/imageview_apptdate"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_time1" />
+
+
+        <TextView
+            android:id="@+id/tv_apptnoofpax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="no of pax"
+            android:gravity="center"
+            android:layout_below="@+id/tv_appttime"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/imageview_appttime"
+            android:layout_toRightOf="@+id/imageview_appttime"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:id="@+id/imageview_apptnoofpax"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/imageview_appttime"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_human" />
+
+        <TextView
+            android:id="@+id/tv_appttotalcost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_apptnoofpax"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toEndOf="@+id/imageview_apptnoofpax"
+            android:layout_toRightOf="@+id/imageview_apptnoofpax"
+            android:gravity="center"
+            android:text="Total Cost"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <ImageView
+            android:id="@+id/imageview_appttotalcost"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/imageview_apptnoofpax"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_money" />
+
+        <Button
+            android:id="@+id/buttonCancelAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/imageview_appttotalcost"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/holo_blue_dark"
+            android:padding="5dp"
+            android:text="Cancel Booking"
+            android:textColor="@android:color/background_light" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

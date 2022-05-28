@@ -69,35 +69,24 @@ public class ViewMyBookingsActivity2 extends AppCompatActivity {
 
 
 
-//        try
-//        {
-//
-//        }
-//        catch (Exception ex)
-//        {
-//            tv_isthereappointment.setText("error: " + ex);
-//        }
+
+        listview_myappointmentpending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
+                // bring data to another page then delete
+                Intent intent = new Intent(ViewMyBookingsActivity2.this, AppointmentCancelActivity.class);
+                intent.putExtra("AppointmentID", appointment[position].getApptID());
+                intent.putExtra("Location", appointment[position].getLocation());
+                intent.putExtra("Date", appointment[position].getDate());
+                intent.putExtra("Time", appointment[position].getTime());
+                intent.putExtra("NoofPax", appointment[position].getNoOfPax());
+                intent.putExtra("TotalCost", appointment[position].getTotalCost());
+                intent.putExtra("ApptGetUserID", appointment[position].getApptUserID());
 
-
-//        listview_myappointmentpending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//
-//                // bring data to another page then delete
-//                Intent intent = new Intent(ViewMyBookingsActivity2.this, AppointmentCancelActivity.class);
-//                intent.putExtra("AppointmentID", appointment[position].getApptID());
-//                intent.putExtra("Location", appointment[position].getLocation());
-//                intent.putExtra("Date", appointment[position].getDate());
-//                intent.putExtra("Time", appointment[position].getTime());
-//                intent.putExtra("NoofPax", appointment[position].getNoOfPax());
-//                intent.putExtra("TotalCost", appointment[position].getTotalCost());
-//                intent.putExtra("ApptGetUserID", appointment[position].getApptUserID());
-//
-//            }
-//        });
+            }
+        });
 
 
     }
