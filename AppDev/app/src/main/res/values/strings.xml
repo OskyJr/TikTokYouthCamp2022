@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TikTok App Dev</string>
+    <string name="app_name">Neko Cafe</string>
 
     <string-array name="select_bookingtime">
         <item>- Choose Time -</item>
