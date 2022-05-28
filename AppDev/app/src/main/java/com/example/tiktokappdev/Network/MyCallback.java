@@ -8,7 +8,4 @@ public abstract class MyCallback<T> implements Callback<T> {
     protected MyCallback(Context arg) {
         this.arg = arg;
     }
-
-    protected MyCallback() {
-    }
 }

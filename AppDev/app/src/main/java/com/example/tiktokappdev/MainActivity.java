@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,15 +11,7 @@ import android.widget.TextView;
 import com.example.tiktokappdev.Activity.DashboardActivity;
 import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.DataModels.UserDetailsDataModel;
-import com.example.tiktokappdev.Network.Methods;
-import com.example.tiktokappdev.DataModels.MenuDataModel;
-import com.example.tiktokappdev.Network.RetrofitClient;
 import com.example.tiktokappdev.SessionManager.SessionManager;
-
-import java.util.ArrayList;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_LoginStatus;
     UserDetailsDataManager UDDM;
     SessionManager sessionManager;
-    //TODO: testing for network api
-    private static final String TAG = "MainActivity";
-    private Button getData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Connect Declaired Variables
+        // Connect Declared Variables
         btnLogin = findViewById(R.id.btn_login);
         et_username = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
@@ -65,69 +52,34 @@ public class MainActivity extends AppCompatActivity {
 
         // Login Button OnClick Functions
         btnLogin = (Button) findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnLogin.setOnClickListener(v -> {
 
-                userDetailsDataModel[0] = UDDM.GetLoginStatus(et_username.getText().toString(), et_password.getText().toString());
+            userDetailsDataModel[0] = UDDM.GetLoginStatus(et_username.getText().toString(), et_password.getText().toString());
 
-                if (userDetailsDataModel[0] != null)
-                {
-                    tv_LoginStatus.setText("Login Successful!");
+            if (userDetailsDataModel[0] != null)
+            {
+                tv_LoginStatus.setText("Login Successful!");
 
-                    // get UserID
-                    String UserID = userDetailsDataModel[0].getUserID().toString();
+                // get UserID
+                String UserID = userDetailsDataModel[0].getUserID();
 
-                    // Store Login in session
-                    sessionManager.setLogin(true);
-                    // store username in session
-                    sessionManager.setUserID(UserID);
+                // Store Login in session
+                sessionManager.setLogin(true);
+                // store username in session
+                sessionManager.setUserID(UserID);
 
-                    // Go to Dashboard Activity (intent)
-                    // openDashboardActivity();
-                    Intent i = new Intent(MainActivity.this, DashboardActivity.class);
-                    startActivity(i);
-
-                }
-                else
-                {
-                    tv_LoginStatus.setText("Login Failed! Please Try Again!");
-                }
+                // Go to Dashboard Activity (intent)
+                // openDashboardActivity();
+                Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+                startActivity(i);
 
             }
-        });
-
-        getData = findViewById(R.id.getData);
-        getData.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
-                Call<MenuDataModel> call = methods.getAllData();
-
-                call.enqueue(new Callback<MenuDataModel>() {
-                    //@Override
-                    public void onResponse(Call<MenuDataModel> call, Response<MenuDataModel> response) {
-                        Log.e(TAG, "onResponse: code: " +response.code() );
-
-                        ArrayList<MenuDataModel.data> drinksData = response.body().getDrinks();
-                        ArrayList<MenuDataModel.data> foodData = response.body().getFood();
-
-                        for (MenuDataModel.data data1 : drinksData) {
-                            Log.e(TAG, "drink: " + data1.getId() + data1.getName() + data1.getPrice());
-                        }
-                        for (MenuDataModel.data data2 : drinksData) {
-                            Log.e(TAG, "food: " + data2.getId() + data2.getName() + data2.getPrice());
-                        }
-                    }
-
-                    public void onFailure(Call<MenuDataModel> call, Throwable t) {
-                        Log.e(TAG, "onFailure: "+t.getMessage());
-                    }
-
-                });
+            else
+            {
+                tv_LoginStatus.setText("Login Failed! Please Try Again!");
             }
-        });
 
+        });
     } // end of onCreate()
 
 
