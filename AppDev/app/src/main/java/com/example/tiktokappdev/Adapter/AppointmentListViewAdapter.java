@@ -1,7 +1,7 @@
 package com.example.tiktokappdev.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -10,9 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.tiktokappdev.DataManagers.UserDetailsDataManager;
 import com.example.tiktokappdev.DataModels.AppointmentDataModel;
-import com.example.tiktokappdev.DataModels.UserDetailsDataModel;
 import com.example.tiktokappdev.R;
 
 public class AppointmentListViewAdapter extends ArrayAdapter {
@@ -37,7 +35,7 @@ public class AppointmentListViewAdapter extends ArrayAdapter {
 
 
         if (itemView == null)
-            itemView = ((Activity)this.getContext()).getLayoutInflater().inflate(R.layout.listview_apptcontentlayout, null);
+            itemView = LayoutInflater.from(this.getContext()).inflate(R.layout.listview_apptcontentlayout, null);
 
         TextView tv_apptlocation = itemView.findViewById(R.id.tv_apptlocation);
         tv_apptlocation.setText(data[position].getLocation());
@@ -51,7 +49,7 @@ public class AppointmentListViewAdapter extends ArrayAdapter {
         TextView tv_apptnoofpax = itemView.findViewById(R.id.tv_apptnoofpax);
         tv_apptnoofpax.setText(data[position].getNoOfPax());
 
-        TextView tv_totalcost = itemView.findViewById(R.id.tv_totalcost);
+        TextView tv_totalcost = itemView.findViewById(R.id.tv_appttotalcost);
         tv_totalcost.setText(data[position].getTotalCost());
 
 
