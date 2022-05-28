@@ -52,7 +52,7 @@ public class MenuMasterFragment extends Fragment {
                 for(int i = 0; i < drinksData.size(); i++) {
                     // image is a .png or .jpg
                     String Image = imageNamePrefix + i;
-                    int ImageInt = requireActivity().getResources().getIdentifier(Image, "drawable", getActivity().getPackageName());
+                    int ImageInt = requireActivity().getResources().getIdentifier(Image, "drawable", requireActivity().getPackageName());
                     if (ImageInt != 0) {
                         drinksData.get(i).setImage(ImageInt);
                     }

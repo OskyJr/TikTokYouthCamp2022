@@ -2,7 +2,6 @@ package com.example.tiktokappdev.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -15,12 +14,8 @@ import android.widget.TextView;
 import com.example.tiktokappdev.DataManagers.MyCatsDataManager;
 import com.example.tiktokappdev.DataModels.MyCatsDataModel;
 import com.example.tiktokappdev.R;
-import com.example.tiktokappdev.SessionManager.SessionManager;
 
 public class MyCatsDetailedFragment extends Fragment {
-
-    // session
-    SessionManager sessionManager;
 
     // DataManager
     MyCatsDataManager MCDM;
@@ -35,6 +30,7 @@ public class MyCatsDetailedFragment extends Fragment {
 
         //Passing in the selected product ID
         Bundle params = this.getArguments();
+        assert params != null;
         final String selectedCatID = params.getString("CatID");
 
         MCDM = new MyCatsDataManager(getActivity());

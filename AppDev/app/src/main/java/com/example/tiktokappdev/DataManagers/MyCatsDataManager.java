@@ -100,8 +100,7 @@ public class MyCatsDataManager {
 //                image is a .png or .jpg
                 Integer ImageInt = cxt.getResources().getIdentifier(Image.substring(0, Image.indexOf(".")), "drawable", cxt.getPackageName());
 
-                MyCatsDataModel MyCatsDataModel = new MyCatsDataModel(CatID , Name, Age, Breed, Description, ImageInt);
-                return MyCatsDataModel;
+                return new MyCatsDataModel(CatID , Name, Age, Breed, Description, ImageInt);
             }
             // close ResultSet and connection
             rs.close();

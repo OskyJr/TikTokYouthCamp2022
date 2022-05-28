@@ -2,7 +2,6 @@ package com.example.tiktokappdev.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
@@ -10,20 +9,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.tiktokappdev.Adapter.MyCatsGridviewAdapter;
 import com.example.tiktokappdev.DataManagers.MyCatsDataManager;
 import com.example.tiktokappdev.DataModels.MyCatsDataModel;
 import com.example.tiktokappdev.R;
-import com.example.tiktokappdev.SessionManager.SessionManager;
 
 public class MyCatsMasterFragment extends Fragment {
-
-
-    // session
-    SessionManager sessionManager;
 
     // DataManager
     MyCatsDataManager MCDM;
@@ -49,19 +42,16 @@ public class MyCatsMasterFragment extends Fragment {
 
         gridViewCats.setAdapter(catGridViewAdapter);
 
-        gridViewCats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        gridViewCats.setOnItemClickListener((parent, view1, position, id) -> {
 
-                MyCatsDataModel selectedCat = cats[position];
-                Activity parentActivity = getActivity();
-                if (parentActivity instanceof CatsSelectedListener)
-                {
-                    // when gridview is clicked, pass in the equipment id
-                    ((CatsSelectedListener)parentActivity).onCatSelected(selectedCat);
-                }
-
+            MyCatsDataModel selectedCat = cats[position];
+            Activity parentActivity = getActivity();
+            if (parentActivity instanceof CatsSelectedListener)
+            {
+                // when gridview is clicked, pass in the equipment id
+                ((CatsSelectedListener)parentActivity).onCatSelected(selectedCat);
             }
+
         });
 
         return view;

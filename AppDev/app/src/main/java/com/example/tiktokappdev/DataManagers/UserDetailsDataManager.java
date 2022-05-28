@@ -7,7 +7,6 @@ import com.example.tiktokappdev.Database.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class UserDetailsDataManager {
 
@@ -40,8 +39,7 @@ public class UserDetailsDataManager {
                 String Gender = rs.getString(7);
                 String password = rs.getString(8);
 
-                UserDetailsDataModel userDetailsDataModel = new UserDetailsDataModel(ID, Name, Roles, email, ContactNumber, DateofBirth, Gender, password);
-                return userDetailsDataModel;
+                return new UserDetailsDataModel(ID, Name, Roles, email, ContactNumber, DateofBirth, Gender, password);
             }
             // close TesultSet and connection
             rs.close();
@@ -81,8 +79,7 @@ public class UserDetailsDataManager {
                 String Gender = rs.getString(7);
                 String password = rs.getString(8);
 
-                UserDetailsDataModel userDetailsDataModel = new UserDetailsDataModel(ID, Name, Roles, email, ContactNumber, DateofBirth, Gender, password);
-                return userDetailsDataModel;
+                return new UserDetailsDataModel(ID, Name, Roles, email, ContactNumber, DateofBirth, Gender, password);
             }
             // close ResultSet and connection
             rs.close();

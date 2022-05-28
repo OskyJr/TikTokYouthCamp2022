@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 sessionManager.setUserID(UserID);
 
                 // Go to Dashboard Activity (intent)
-                // openDashboardActivity();
                 Intent i = new Intent(MainActivity.this, DashboardActivity.class);
                 startActivity(i);
 
@@ -82,12 +81,4 @@ public class MainActivity extends AppCompatActivity {
 
         });
     } // end of onCreate()
-
-
-    public void openDashboardActivity()
-    {
-        Intent intent = new Intent( MainActivity.this, DashboardActivity.class);
-        startActivity(intent);
-    }
-
 }
