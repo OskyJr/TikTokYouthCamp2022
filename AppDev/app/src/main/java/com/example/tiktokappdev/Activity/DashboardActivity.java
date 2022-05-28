@@ -59,6 +59,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
         cardview_menu = findViewById(R.id.cardview_menu);
         cardview_menu.setOnClickListener(this);
+
         cardview_myreservation = findViewById(R.id.cardview_myreservation);
         cardview_myreservation.setOnClickListener(this);
 
