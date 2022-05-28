@@ -84,7 +84,7 @@ public class ViewMyBookingsActivity2 extends AppCompatActivity {
                 intent.putExtra("NoofPax", appointment[position].getNoOfPax());
                 intent.putExtra("TotalCost", appointment[position].getTotalCost());
                 intent.putExtra("ApptGetUserID", appointment[position].getApptUserID());
-
+                startActivity(intent);
             }
         });
 

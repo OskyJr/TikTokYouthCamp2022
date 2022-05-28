@@ -52,13 +52,14 @@ public class AppointmentCancelActivity extends AppCompatActivity {
         ADM = new AppointmentDataManager();
         UDDM = new UserDetailsDataManager();
 
+        sessionManager = new SessionManager(getApplicationContext());
         UserID = sessionManager.getUserID().toString();
 
         tv_apptlocation = findViewById(R.id.tv_apptlocation);
         tv_apptdate = findViewById(R.id.tv_apptdate);
         tv_appttime = findViewById(R.id.tv_appttime);
         tv_apptnoofpax = findViewById(R.id.tv_apptnoofpax);
-        tv_totalcost = findViewById(R.id.tv_totalcost);
+        tv_totalcost = findViewById(R.id.tv_appttotalcost);
 
 
         Intent intent = getIntent();
